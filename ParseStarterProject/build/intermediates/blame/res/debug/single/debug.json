@@ -1,0 +1,30 @@
+[
+    {
+        "merged": "/Users/vinnie.shantharoopan/Desktop/Parse-Server-Starter-Project/ParseStarterProject/build/intermediates/res/merged/debug/mipmap-mdpi_ic_launcher.png.flat",
+        "source": "/Users/vinnie.shantharoopan/Desktop/Parse-Server-Starter-Project/ParseStarterProject/src/main/res/mipmap-mdpi/ic_launcher.png"
+    },
+    {
+        "merged": "/Users/vinnie.shantharoopan/Desktop/Parse-Server-Starter-Project/ParseStarterProject/build/intermediates/res/merged/debug/mipmap-xhdpi_ic_launcher.png.flat",
+        "source": "/Users/vinnie.shantharoopan/Desktop/Parse-Server-Starter-Project/ParseStarterProject/src/main/res/mipmap-xhdpi/ic_launcher.png"
+    },
+    {
+        "merged": "/Users/vinnie.shantharoopan/Desktop/Parse-Server-Starter-Project/ParseStarterProject/build/intermediates/res/merged/debug/mipmap-hdpi_ic_launcher.png.flat",
+        "source": "/Users/vinnie.shantharoopan/Desktop/Parse-Server-Starter-Project/ParseStarterProject/src/main/res/mipmap-hdpi/ic_launcher.png"
+    },
+    {
+        "merged": "/Users/vinnie.shantharoopan/Desktop/Parse-Server-Starter-Project/ParseStarterProject/build/intermediates/res/merged/debug/mipmap-xxhdpi_ic_launcher.png.flat",
+        "source": "/Users/vinnie.shantharoopan/Desktop/Parse-Server-Starter-Project/ParseStarterProject/src/main/res/mipmap-xxhdpi/ic_launcher.png"
+    },
+    {
+        "merged": "/Users/vinnie.shantharoopan/Desktop/Parse-Server-Starter-Project/ParseStarterProject/build/intermediates/res/merged/debug/drawable_twitter.png.flat",
+        "source": "/Users/vinnie.shantharoopan/Desktop/Parse-Server-Starter-Project/ParseStarterProject/src/main/res/drawable/twitter.png"
+    },
+    {
+        "merged": "/Users/vinnie.shantharoopan/Desktop/Parse-Server-Starter-Project/ParseStarterProject/build/intermediates/res/merged/debug/layout_activity_homepage.xml.flat",
+        "source": "/Users/vinnie.shantharoopan/Desktop/Parse-Server-Starter-Project/ParseStarterProject/src/main/res/layout/activity_homepage.xml"
+    },
+    {
+        "merged": "/Users/vinnie.shantharoopan/Desktop/Parse-Server-Starter-Project/ParseStarterProject/build/intermediates/res/merged/debug/layout_activity_main.xml.flat",
+        "source": "/Users/vinnie.shantharoopan/Desktop/Parse-Server-Starter-Project/ParseStarterProject/src/main/res/layout/activity_main.xml"
+    }
+]

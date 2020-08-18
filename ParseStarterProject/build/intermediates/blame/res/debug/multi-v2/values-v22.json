@@ -1,0 +1,28 @@
+{
+    "logs": [
+        {
+            "outputFile": "/Users/vinnie.shantharoopan/Desktop/Parse-Server-Starter-Project/ParseStarterProject/build/intermediates/incremental/mergeDebugResources/merged.dir/values-v22/values-v22.xml",
+            "map": [
+                {
+                    "source": "/Users/vinnie.shantharoopan/.gradle/caches/transforms-2/files-2.1/d64a67cc397af1ee7121115290418411/appcompat-v7-23.0.0/res/values-v22/values-v22.xml",
+                    "from": {
+                        "startLines": "4,5,6,9",
+                        "startColumns": "4,4,4,4",
+                        "startOffsets": "281,356,443,624",
+                        "endLines": "4,5,8,11",
+                        "endColumns": "74,86,12,12",
+                        "endOffsets": "351,438,619,812"
+                    },
+                    "to": {
+                        "startLines": "2,3,4,7",
+                        "startColumns": "4,4,4,4",
+                        "startOffsets": "55,130,217,398",
+                        "endLines": "2,3,6,9",
+                        "endColumns": "74,86,12,12",
+                        "endOffsets": "125,212,393,586"
+                    }
+                }
+            ]
+        }
+    ]
+}
