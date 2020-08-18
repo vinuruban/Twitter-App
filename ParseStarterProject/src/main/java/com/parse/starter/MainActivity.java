@@ -10,24 +10,18 @@ package com.parse.starter;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
-import android.widget.Switch;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.parse.LogInCallback;
-import com.parse.Parse;
 import com.parse.ParseAnalytics;
-import com.parse.ParseAnonymousUtils;
 import com.parse.ParseException;
 import com.parse.ParseUser;
-import com.parse.SaveCallback;
 import com.parse.SignUpCallback;
 
 
@@ -46,18 +40,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_main);
 
-//    if (ParseUser.getCurrentUser() != null) { //IF USER WAS PREVIOUSLY LOGGED IN...
-//      navigateToLoginMode();
-//    }
-//    else { //IF NO USERS WERE LOGGED IN...
+    if (ParseUser.getCurrentUser().getUsername() != null) { //IF USER WAS PREVIOUSLY LOGGED IN...
+      navigateToLoginMode();
+    }
+    else { //IF NO USERS WERE LOGGED IN...
       username = (EditText) findViewById(R.id.username);
       password = (EditText) findViewById(R.id.password);
 
       /** TO LET KEYBOARD DISAPPEAR WHEN CLICKED OUTSIDE **/
       ImageView logoImageView = (ImageView) findViewById(R.id.logo);
       RelativeLayout backgroundLayout = (RelativeLayout) findViewById(R.id.backgroundLayout);
-      logoImageView.setOnClickListener(this); //read note in SIGN UP USER
-      backgroundLayout.setOnClickListener(this); //read note in SIGN UP USER
+      logoImageView.setOnClickListener(this); //read onClick(View view)
+      backgroundLayout.setOnClickListener(this); //read onClick(View view)
 
       /** WHEN USER HITS ENTER AFTER FILLING PASSWORD... **/
       password.setOnKeyListener(new View.OnKeyListener() {
@@ -70,7 +64,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
           return false;
         }
       });
-//    }
+    }
 
     /** NEEDED FOR THE PARSE SERVER **/
     ParseAnalytics.trackAppOpenedInBackground(getIntent());
@@ -90,9 +84,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     ParseUser.logInInBackground(username.getText().toString(), password.getText().toString(), new LogInCallback() {
       @Override
       public void done(ParseUser user, ParseException e) {
-        if (user != null) {
-//            navigateToLoginMode();
+        if (user != null) { /** IF USER EXISTS, LOG THEM IN. IF NOT, SIGN THEM UP!!!! **/
           Toast.makeText(getApplicationContext(), "Logged in", Toast.LENGTH_SHORT).show();
+          navigateToLoginMode();
         }
         else {
           /** SIGNUP **/
@@ -120,7 +114,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
   /** NAVIGATE TO LOGGED IN MODE **/
   public void navigateToLoginMode() {
-    Intent intent = new Intent(MainActivity.this, HomepageActivity.class);
+    Intent intent = new Intent(MainActivity.this, FeedActivity.class);
     startActivity(intent);
   }
 

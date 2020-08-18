@@ -858,6 +858,7 @@ id action_mode_bar
 id action_mode_bar_stub
 id action_mode_close_button
 id activity_chooser_view_content
+id add_tweet
 id adjust_height
 id adjust_width
 id alertTitle
@@ -936,6 +937,7 @@ id end_padder
 id end_text
 id expand_activities_button
 id expanded_menu
+id followers
 id gone
 id google_wallet_classic
 id google_wallet_grayscale
@@ -971,6 +973,7 @@ id line3
 id listMode
 id list_item
 id loading_indicator
+id log_out
 id loginSignup
 id logo
 id logo_only
@@ -1062,7 +1065,6 @@ id text1
 id text2
 id textSpacerNoButtons
 id textTitle
-id textView
 id text_empty_message
 id text_list_view
 id thing_proto
@@ -1077,6 +1079,7 @@ id topPanel
 id up
 id url
 id useLogo
+id userTextView
 id username
 id wide
 id withText
@@ -1113,7 +1116,8 @@ layout abc_screen_toolbar
 layout abc_search_dropdown_item_icons_2line
 layout abc_search_view
 layout abc_select_dialog_material
-layout activity_homepage
+layout activity_feed
+layout activity_followers
 layout activity_main
 layout cast_expanded_controller_activity
 layout cast_help_text
@@ -1140,6 +1144,7 @@ layout select_dialog_item_material
 layout select_dialog_multichoice_material
 layout select_dialog_singlechoice_material
 layout support_simple_spinner_dropdown_item
+menu menu_homepage
 mipmap ic_launcher
 raw gtm_analytics
 string abc_action_bar_home_description

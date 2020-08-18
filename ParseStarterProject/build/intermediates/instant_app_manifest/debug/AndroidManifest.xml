@@ -36,7 +36,8 @@
         android:label="@string/app_name"
         android:testOnly="true"
         android:theme="@style/AppTheme" >
-        <activity android:name="com.parse.starter.HomepageActivity" />
+        <activity android:name="com.parse.starter.FollowersActivity" />
+        <activity android:name="com.parse.starter.FeedActivity" />
         <activity
             android:name="com.parse.starter.MainActivity"
             android:label="@string/app_name" >
