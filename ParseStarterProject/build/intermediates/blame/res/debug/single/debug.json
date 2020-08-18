@@ -24,6 +24,10 @@
         "source": "/Users/vinnie.shantharoopan/Desktop/Parse-Server-Starter-Project/ParseStarterProject/src/main/res/mipmap-xxhdpi/ic_launcher.png"
     },
     {
+        "merged": "/Users/vinnie.shantharoopan/Desktop/Parse-Server-Starter-Project/ParseStarterProject/build/intermediates/res/merged/debug/layout_list_item.xml.flat",
+        "source": "/Users/vinnie.shantharoopan/Desktop/Parse-Server-Starter-Project/ParseStarterProject/src/main/res/layout/list_item.xml"
+    },
+    {
         "merged": "/Users/vinnie.shantharoopan/Desktop/Parse-Server-Starter-Project/ParseStarterProject/build/intermediates/res/merged/debug/drawable_twitter.png.flat",
         "source": "/Users/vinnie.shantharoopan/Desktop/Parse-Server-Starter-Project/ParseStarterProject/src/main/res/drawable/twitter.png"
     },
