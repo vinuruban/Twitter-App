@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AbsListView;
 import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.CheckBox;
 import android.widget.CheckedTextView;
 import android.widget.ListView;
@@ -28,8 +29,8 @@ import java.util.List;
 public class FollowersActivity extends AppCompatActivity {
 
     String currentUser;
-    UserAdapter adapter;
-    ArrayList<UserObject> users;
+    ArrayAdapter adapter;
+    ArrayList<String> users;
     ListView listView;
 
     @Override
@@ -39,30 +40,31 @@ public class FollowersActivity extends AppCompatActivity {
 
         setTitle("Followers");
 
-        users = new ArrayList<UserObject>();
-        adapter = new UserAdapter(FollowersActivity.this, users);
+        users = new ArrayList<String>();
         listView = (ListView) findViewById(R.id.list);
+
+        /** listView + checkboxes */
+        listView.setChoiceMode(AbsListView.CHOICE_MODE_MULTIPLE);
+        adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_checked, users); //listView with checkboxes!
+
         listView.setAdapter(adapter);
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @TargetApi(Build.VERSION_CODES.HONEYCOMB)
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 //To use colours to indicate if isFollowing or not
-                ColorDrawable viewColor = (ColorDrawable) view.getBackground();
+                CheckedTextView checkedTextView = (CheckedTextView) view;
 
-                if (viewColor.getColor() == Color.WHITE) {
-                    Toast.makeText(getApplicationContext(), "Checked " + users.get(i).getUsername(), Toast.LENGTH_SHORT).show();
-                    ParseUser.getCurrentUser().add("isFollowing", users.get(i).getUsername()); //add user to the list of followers
-                    view.setBackgroundColor(Color.CYAN);
+                if (checkedTextView.isChecked()) {
+                    Toast.makeText(getApplicationContext(), "You are now following " + users.get(i), Toast.LENGTH_SHORT).show();
+                    ParseUser.getCurrentUser().add("isFollowing", users.get(i)); //add user to the list of followers
                 }
                 else {
-                    Toast.makeText(getApplicationContext(), "Unchecked " + users.get(i).getUsername(), Toast.LENGTH_SHORT).show();
-                    ParseUser.getCurrentUser().getList("isFollowing").remove(users.get(i).getUsername()); //remove user
+                    Toast.makeText(getApplicationContext(), "You unfollowed " + users.get(i), Toast.LENGTH_SHORT).show();
+                    ParseUser.getCurrentUser().getList("isFollowing").remove(users.get(i)); //remove user
                     List newList = ParseUser.getCurrentUser().getList("isFollowing"); //creates a updated list of users
                     ParseUser.getCurrentUser().remove("isFollowing");
                     ParseUser.getCurrentUser().put("isFollowing", newList);
-                    view.setBackgroundColor(Color.WHITE);
                 }
                 ParseUser.getCurrentUser().saveInBackground(); //actually updates the list in Parse
             }
@@ -82,9 +84,17 @@ public class FollowersActivity extends AppCompatActivity {
                 if (e == null && objects.size() > 0) {
                     for (ParseUser user : objects) {
                         String username = user.getUsername();
-                        users.add(new UserObject(username));
+                        users.add(username);
                     }
                     adapter.notifyDataSetChanged();
+
+                    /** to reload isFollowing data onCreate **/
+                    /** how to make changes to a specific item in a listView!!! **/
+                    for (String username: users) {
+                        if (ParseUser.getCurrentUser().getList("isFollowing").contains(username)) {
+                            listView.setItemChecked(users.indexOf(username), true); //in the listview, the specific item (found using index) gets ticked
+                        }
+                    }
                 }
                 else {
                     e.printStackTrace();
