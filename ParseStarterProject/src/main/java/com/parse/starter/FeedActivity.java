@@ -5,27 +5,35 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.parse.ParseUser;
 
+import java.util.ArrayList;
+
 public class FeedActivity extends AppCompatActivity {
 
     String currentUser;
+    TweetAdapter adapter;
+    ArrayList<TweetObject> tweets;
+    ListView listView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_feed);
 
-        setTitle("Twitter Feed");
-
         //Get current username
         currentUser = ParseUser.getCurrentUser().getUsername();
 
-        TextView userDetails = (TextView) findViewById(R.id.userTextView);
-        userDetails.setText("Logged in as: " + currentUser);
+        setTitle(currentUser + "'s Twitter Feed");
+
+        tweets = new ArrayList<TweetObject>();
+        adapter = new TweetAdapter(FeedActivity.this, tweets);
+        listView = (ListView) findViewById(R.id.list);
+        listView.setAdapter(adapter);
     }
 
     @Override

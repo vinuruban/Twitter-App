@@ -1016,6 +1016,7 @@ id progress_horizontal
 id radio
 id rfc822
 id right
+id rootView
 id route_name
 id sandbox
 id satellite
@@ -1077,6 +1078,7 @@ id title_view
 id toolbar
 id top
 id topPanel
+id tweetTextView
 id up
 id url
 id useLogo
@@ -1126,6 +1128,7 @@ layout cast_intro_overlay
 layout cast_mini_controller
 layout cast_tracks_chooser_dialog_layout
 layout cast_tracks_chooser_dialog_row_layout
+layout list_item
 layout mr_media_route_chooser_dialog
 layout mr_media_route_controller_material_dialog_b
 layout mr_media_route_list_item

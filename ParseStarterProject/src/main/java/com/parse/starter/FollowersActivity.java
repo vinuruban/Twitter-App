@@ -43,7 +43,7 @@ public class FollowersActivity extends AppCompatActivity {
         users = new ArrayList<String>();
         listView = (ListView) findViewById(R.id.list);
 
-        /** listView + checkboxes */
+        /** enable listView's own checkboxes */
         listView.setChoiceMode(AbsListView.CHOICE_MODE_MULTIPLE);
         adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_checked, users); //listView with checkboxes!
 
