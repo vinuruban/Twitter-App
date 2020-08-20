@@ -31,14 +31,15 @@ public class TweetAdapter extends ArrayAdapter<TweetObject> {
         currentUser = getItem(position);
 
         TextView userTextView = (TextView) listItemView.findViewById(R.id.userTextView);
-        // Get the version name from the current AndroidFlavor object and
-        // set this text on the name TextView
-        userTextView.setText(currentUser.getUsername());
-
         TextView tweetTextView = (TextView) listItemView.findViewById(R.id.tweetTextView);
-        // Get the version name from the current AndroidFlavor object and
-        // set this text on the name TextView
-        tweetTextView.setText(currentUser.getTweet());
+
+        if (FeedActivity.tweetStatus == 1) { //if there are no tweets...
+            userTextView.setText(currentUser.getUsername());
+            tweetTextView.setText(currentUser.getTweet());
+        } else {
+            userTextView.setText("- tweeted by " + currentUser.getUsername());
+            tweetTextView.setText("\"" + currentUser.getTweet() + "\"");
+        }
 
         // Return the whole list item layout (containing 2 TextViews and an ImageView)
         // so that it can be shown in the ListView

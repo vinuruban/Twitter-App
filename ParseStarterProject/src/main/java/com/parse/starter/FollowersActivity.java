@@ -1,6 +1,7 @@
 package com.parse.starter;
 
 import android.annotation.TargetApi;
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Build;
@@ -104,5 +105,14 @@ public class FollowersActivity extends AppCompatActivity {
 
         ParseAnalytics.trackAppOpenedInBackground(getIntent());
 
+    }
+
+    /** updating the followers checkboxes and hitting back press on the phone's own tab didn't refresh the FeedActivity's listView, so had to write the following **/
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(FollowersActivity.this, FeedActivity.class);
+        startActivity(intent);
+
+        super.onBackPressed();
     }
 }

@@ -7,6 +7,7 @@ import android.graphics.BitmapFactory;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.ViewGroup;
@@ -36,6 +37,7 @@ public class FeedActivity extends AppCompatActivity {
     TweetAdapter adapter;
     ArrayList<TweetObject> tweets;
     ListView listView;
+    static int tweetStatus = 0; //needed for TweetAdapter
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -73,10 +75,12 @@ public class FeedActivity extends AppCompatActivity {
             @Override
             public void done(List<ParseObject> objects, ParseException e) {
                 if (objects.size() == 0) {
-                    tweets.add(new TweetObject("Your followers didn't tweet anything", ""));
+                    tweetStatus = 1; //to format listView differently - check in TweetAdapter
+                    tweets.add(new TweetObject("There are no tweets", ""));
                     adapter.notifyDataSetChanged();
                 }
                 else if (e == null && objects.size() > 0) {
+                    tweetStatus = 2;
                     for (ParseObject object : objects) { //LOOPS THROUGH EACH TWEETS OF currentUser
                         String username = object.getString("username");
                         String tweet = object.getString("tweet");
@@ -145,7 +149,7 @@ public class FeedActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    public void addTweet(String tweet) {
+    public void addTweet(final String tweet) {
         ParseObject object = new ParseObject("Tweet"); // PASS INTO PARSE
         object.put("username", currentUser); //PASS IN THE USER WHO IS TWEETING
         object.put("tweet", tweet); //PASS IN THEIR TWEET
@@ -154,6 +158,7 @@ public class FeedActivity extends AppCompatActivity {
             public void done(ParseException e) {
                 if (e == null) {
                     Toast.makeText(getApplicationContext(), "Tweet uploaded to Parse!", Toast.LENGTH_SHORT).show();
+                    tweets.add(new TweetObject(currentUser, tweet));
                     adapter.notifyDataSetChanged();
                 }
                 else {
